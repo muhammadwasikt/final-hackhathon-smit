@@ -176,9 +176,7 @@ const forgotPassword = async (req, res) => {
         existingUser.resetPasswordTokenExpiresAt = tokenExpiresAt;
 
         await existingUser.save();
-
-        // sendResetEmail(email, `http://localhost:5173/reset-password/${token}`)
-        sendResetEmail(email, `https://blogbusters.vercel.app/reset-password/${token}`)
+        sendResetEmail(email, `https://final-hackhathon-smit.vercel.app/reset-password/${token}`)
 
         res.status(200).send({ status: 200, message: "Email sent successfully", data: existingUser })
 
