@@ -16,7 +16,7 @@ const SignIn = () => {
     const [loader, setLoader] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const user = useSelector(state => state?.user.userId)
+    const user = useSelector(state => state?.user.userToken)
 
     const onSubmit = async (data) => {
         setLoader(true)
@@ -34,7 +34,7 @@ const SignIn = () => {
     };
 
     useEffect(()=>{
-        if (user){
+        if (user?. length > 0){
             navigate('/auth/dashboard')
         }
     },[user])
