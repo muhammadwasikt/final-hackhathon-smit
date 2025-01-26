@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { userId, userToken } from "../../redux/reducers/userSlice";
+import { useNavigate } from "react-router";
 
 const Dashboard = () => {
     const {
@@ -16,12 +17,13 @@ const Dashboard = () => {
         console.log("Beneficiary Data:", data);
         // Add API call to save beneficiary data here
     };
-        const handleLogout = () => {
-            dispatch(userToken(''))
-            dispatch(userId(''));
-            navigate('/')
-        }
+    const handleLogout = () => {
+        dispatch(userToken(''))
+        dispatch(userId(''));
+        navigate('/')
+    }
 
+    const navigate = useNavigate()
     return (
         <div className="">
             {!user?.role === "Admin" ?
@@ -161,7 +163,10 @@ const Dashboard = () => {
                     {/* Header */}
                     <header className="bg-blue-600 text-white py-4 px-6 flex justify-between items-center">
                         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-                        <button type="button" className="btn" onClick={handleLogout}>LogOut</button>
+                        <div className="flex gap-2">
+                            <button type="button" className="btn" onClick={() => navigate('/auth/create-new-employe')}>Add New Employe</button>
+                            <button type="button" className="btn" onClick={handleLogout}>LogOut</button>
+                        </div>
                     </header>
 
                     {/* Main Content */}
