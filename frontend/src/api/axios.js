@@ -18,13 +18,13 @@ const postReq = async (path , data , form) => {
         if (response?.data.message) {
             toast.success(response?.data.message)            
         }
-        return response.data.data;
+        return response?.data;
     } catch (error) {
         console.error(`Error fetching data: ${error.message}`);
         if (error.message === 'timeout of 9000ms exceeded') {
             toast.error("Slow or no internet connection")            
         }
-        toast.error(error.response.data.message);
+        toast.error(error?.message);
     }
 }
 

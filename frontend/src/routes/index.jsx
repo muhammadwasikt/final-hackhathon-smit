@@ -1,45 +1,27 @@
-import { AppLayout, AuthLayout, EmailCheckPage, ForgotPassword, OTPVerification, ResendOtp, ResetPassword, SignIn, SignUp } from '../utils/imports/import';
+import SignIn from "../layout/auth/SignIn";
+import CreateNewEmploye from "../layout/auth/CreateNewEmploye";
+import AppLayout from "../layout/pages/AppLayout";
+import Dashboard from "../layout/auth/Dashboard";
 
 
 const routes = [
     {
         path: '/',
         element: <AppLayout />,
-        children: []
-    },
-    {
-        path: '/',
-        element: <AuthLayout />,
         children: [
             {
-                path: '/auth/sign-in',
-                element: <SignIn />
-            },
-            {
-                path: '/auth/sign-up',
-                element: <SignUp />
-            },
-            {
-                path: '/forgot-password',
-                element: <ForgotPassword />
-            },
-            {
-                path: '/reset-password/:token',
-                element: <ResetPassword />
-            },
-            {
-                path: '/password-reset-email',
-                element: <EmailCheckPage />
-            },
-            {
-                path: '/email-verification/:token',
-                element: <OTPVerification />
-            },
-            {
-                path: '/resend-otp',
-                element: <ResendOtp />
+                path: '/auth/dashboard',
+                element: <Dashboard />
             }
         ]
+    },
+    {
+        path: '/auth/signin',
+        element: <SignIn />
+    },
+    {
+        path: '/auth/create-new-employe',
+        element: <CreateNewEmploye />
     },
     {
         path: '*',
