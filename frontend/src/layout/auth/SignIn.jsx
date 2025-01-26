@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { useForm } from "react-hook-form";
 import { getReq, postReq } from "../../api/axios";
 import { userId, userToken } from "../../redux/reducers/userSlice";
@@ -16,6 +16,7 @@ const SignIn = () => {
     const [loader, setLoader] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const user = useSelector(state => state?.user.userId)
 
     const onSubmit = async (data) => {
         setLoader(true)
@@ -25,13 +26,18 @@ const SignIn = () => {
             dispatch(userToken(response.data))
             dispatch(userId(user))
             setLoader(false)
-            navigate('/auth/dashboard')
             reset()
         } else {
             setLoader(false)
         }
 
     };
+
+    useEffect(()=>{
+        if (user){
+            navigate('/auth/dashboard')
+        }
+    },[user])
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
