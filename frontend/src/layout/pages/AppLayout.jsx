@@ -7,7 +7,6 @@ const AppLayout = () => {
   const user = useSelector(state => state?.user.userId)
   const navigate = useNavigate()
   
-console.log(user);
 
   useEffect(()=>{
 
@@ -17,7 +16,7 @@ console.log(user);
       navigate('/auth/dashboard')
     }
 
-  },[user])
+  },[user , navigate])
   return (
     <div>
       <Outlet />

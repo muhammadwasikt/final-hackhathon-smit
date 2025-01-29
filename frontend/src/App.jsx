@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router';
 import routes from './routes/index';
 import { Toaster } from 'react-hot-toast';
+import ApiHandling from './layout/modules/GetApiHandling';
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
 
   return (
     <div>
+      <ApiHandling />
       <Toaster />
       <Routes>{renderRoutes(routes)}</Routes>
     </div>

@@ -1,5 +1,5 @@
 import SignIn from "../layout/auth/SignIn";
-import CreateNewEmploye from "../layout/auth/CreateNewEmploye";
+import CreateNewEmploye from "../layout/modules/CreateNewEmploye";
 import AppLayout from "../layout/pages/AppLayout";
 import Dashboard from "../layout/auth/Dashboard";
 
